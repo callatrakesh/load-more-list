@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Load More List | Jquery</title>
+    <style>
+      html{margin: 0;padding: 0; background: #eee;}
+      body{min-height:100vh; max-width: 1150px; padding: 0; margin: 0 auto; box-sizing: border-box; background: #fff;}
+      h1{ text-align: center; padding:30px 0; margin: 0; border-bottom: 1px solid #eee; }
+      .section{padding: 30px;}
+      .list-iteam{margin: 0; padding: 0; list-style: none;}
+      .list-iteam li{display:none; margin-bottom: 15px; border:1px solid #ddd; padding: 10px 15px; color: #666; width: 150px;}
+      #loadMore{background: #06c; color: #fff; display: inline-block; text-decoration: none; padding: 10px 15px; width: 150px; text-align: center;}
+      .totop {position:fixed; bottom:10px; right:20px;}
+      .totop a {display: none;}
+      .totop a{display: inline-block; height: 50px; width: 50px; border-radius: 50%; background: #06c; color: #fff; text-decoration: none; text-align: center; box-sizing: border-box; padding: 5px 0;}
+    </style>
+  </head>
+  <body>
+    <h1>Load more content with jQuery</h1>
+    <section class="section">
+      <p>Load more content with jQuery</p>
+        <ul class="list-iteam">
+          <li>List Iteam 1</li>
+          <li>List Iteam 2</li>
+          <li>List Iteam 3</li>
+          <li>List Iteam 4</li>
+          <li>List Iteam 5</li>
+          <li>List Iteam 6</li>
+          <li>List Iteam 7</li>
+          <li>List Iteam 8</li>
+          <li>List Iteam 9</li>
+          <li>List Iteam 10</li>
+          <li>List Iteam 11</li>
+          <li>List Iteam 12</li>
+          <li>List Iteam 13</li>
+          <li>List Iteam 14</li>
+          <li>List Iteam 15</li>
+          <li>List Iteam 16</li>
+          <li>List Iteam 17</li>
+          <li>List Iteam 18</li>
+          <li>List Iteam 19</li>
+          <li>List Iteam 20</li>
+          <li>List Iteam 21</li>
+          <li>List Iteam 22</li>
+          <li>List Iteam 23</li>
+          <li>List Iteam 24</li>
+          <li>List Iteam 25</li>
+          <li>List Iteam 26</li>
+          <li>List Iteam 27</li>
+          <li>List Iteam 28</li>
+          <li>List Iteam 29</li>
+          <li>List Iteam 30</li>
+        </ul>
+        <a href="JavaScript:void(0)" id="loadMore">Load More</a>
+    </section>
+    <p class="totop"> 
+      <a href="JavaScript:void(0)" id="toTop">Go<br>Top</a> 
+    </p>
+    <!-- Optional JavaScript -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+      $(".list-iteam li").slice(0, 3).show();
+      $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $(".list-iteam li:hidden").slice(0, 3).slideDown();
+        if ($(".list-iteam li:hidden").length == 0) {
+            $("#loadMore").fadeOut();
+        }        
+    });
+});
+
+$('#toTop').click(function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+});
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+        $('.totop a').fadeIn();
+    } else {
+        $('.totop a').fadeOut();
+    }
+});
+    </script>
+    
+  </body>
+</html>
